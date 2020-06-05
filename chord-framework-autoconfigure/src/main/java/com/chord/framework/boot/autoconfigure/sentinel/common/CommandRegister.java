@@ -30,8 +30,8 @@ public class CommandRegister {
             for (Map.Entry<String, CommandHandler> e : handlerMap.entrySet()) {
                 CommandRegistionUtils.registerCommand(e.getKey(), e.getValue());
             }
-            CommandRegistionUtils.registerCommand(MODIFY_RULE_COMMAND_HANDLER_KEY, new ConsistencyModifyRuleCommandHandler());
-            CommandRegistionUtils.registerCommand(MODIFY_PARAM_RULE_COMMAND_HANDLER_KEY, new ConsistencyModifyParamFlowRuleCommandHandler());
+            CommandRegistionUtils.registerCommand(MODIFY_RULE_COMMAND_HANDLER_KEY, new ConsistencyModifyRulesCommandHandler());
+            CommandRegistionUtils.registerCommand(MODIFY_PARAM_RULE_COMMAND_HANDLER_KEY, new ConsistencyModifyParamFlowRulesCommandHandler());
         }
         logger.debug("替换ModifyRuleCommandHandler->ConsistencyModifyRuleCommandHandler");
         logger.debug("替换ModifyFlowRuleCommandHandler->ConsistencyModifyParamFlowRuleCommandHandler");

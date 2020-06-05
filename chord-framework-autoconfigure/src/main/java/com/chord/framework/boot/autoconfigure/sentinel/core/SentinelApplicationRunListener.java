@@ -7,18 +7,11 @@ import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiPredicateItem;
 import com.alibaba.csp.sentinel.adapter.gateway.common.api.GatewayApiDefinitionManager;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.SentinelGatewayFilter;
 import com.alibaba.csp.sentinel.config.SentinelConfig;
-import com.alibaba.csp.sentinel.transport.command.SimpleHttpCommandCenter;
 import com.chord.framework.boot.autoconfigure.common.ContextUtils;
-import com.chord.framework.boot.autoconfigure.sentinel.common.CommandRegister;
 import com.chord.framework.boot.autoconfigure.sentinel.gateway.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.bytebuddy.ByteBuddy;
-import net.bytebuddy.agent.ByteBuddyAgent;
-import net.bytebuddy.dynamic.loading.ClassReloadingStrategy;
-import net.bytebuddy.implementation.MethodDelegation;
-import net.bytebuddy.matcher.ElementMatchers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -35,13 +28,10 @@ import java.util.stream.Stream;
 /**
  *
  * starting阶段的设置
- * 1、设置SentinelConfig
- * 2、某些规则的CommandHandler先刷缓存，后修改数据库，会造成数据不一致
- *    获取CommandHandler都是通过静态方法进行的，不好扩展
- *    这里字节码将这些CommandHandler替换成自定义的Consistency开头的CommandHandler
+ * 设置SentinelConfig
  *
  * started阶段的设置
- * 1、根据配置设置api分组
+ * 根据配置设置api分组
  *
  * Created on 2020/5/19
  *
@@ -67,21 +57,8 @@ public class SentinelApplicationRunListener implements SpringApplicationRunListe
                 System.setProperty(SentinelConfig.APP_TYPE, String.valueOf(SentinelGatewayConstants.APP_TYPE_GATEWAY));
             }
 
-            ByteBuddyAgent.install();
-            new ByteBuddy().redefine(SimpleHttpCommandCenter.class)
-                    .method(ElementMatchers.named("registerCommands").and(ElementMatchers.takesArgument(0, Map.class)))
-                    .intercept(MethodDelegation.to(GatewayCommandRegister.class))
-                    .make()
-                    .load(Thread.currentThread().getContextClassLoader(), ClassReloadingStrategy.fromInstalledAgent());
-
         } catch (ClassNotFoundException | NoClassDefFoundError e) {
             logger.debug("common app type");
-            ByteBuddyAgent.install();
-            new ByteBuddy().redefine(SimpleHttpCommandCenter.class)
-                    .method(ElementMatchers.named("registerCommands").and(ElementMatchers.takesArgument(0, Map.class)))
-                    .intercept(MethodDelegation.to(CommandRegister.class))
-                    .make()
-                    .load(Thread.currentThread().getContextClassLoader(), ClassReloadingStrategy.fromInstalledAgent());
         }
 
     }

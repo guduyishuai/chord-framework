@@ -30,7 +30,7 @@ public class GatewayCommandRegister {
             for (Map.Entry<String, CommandHandler> e : handlerMap.entrySet()) {
                 CommandRegistionUtils.registerCommand(e.getKey(), e.getValue());
             }
-            CommandRegistionUtils.registerCommand(UPDATE_GATEWAY_RULE_COMMAND_HANDLER_KEY, new ConnsistencyUpdateGatewayRuleCommandHandler());
+            CommandRegistionUtils.registerCommand(UPDATE_GATEWAY_RULE_COMMAND_HANDLER_KEY, new ConsistencyUpdateGatewayRuleCommandHandler());
             CommandRegistionUtils.registerCommand(UPDATE_GATEWAY_API_DEFINITION_GROUP_COMMAND_HANDLER_KEY, new ConsistencyUpdateGatewayApiDefinitionGroupCommandHandler());
         }
         logger.debug("替换UpdateGatewayRuleCommandHandler->ConsistencyUpdateGatewayRuleCommandHandler");

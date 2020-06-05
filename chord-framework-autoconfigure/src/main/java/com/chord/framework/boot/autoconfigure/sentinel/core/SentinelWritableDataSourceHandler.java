@@ -12,7 +12,7 @@ import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.param.ParamFlowRule;
 import com.alibaba.csp.sentinel.slots.system.SystemRule;
 import com.alibaba.csp.sentinel.transport.util.WritableDataSourceRegistry;
-import com.chord.framework.boot.autoconfigure.sentinel.common.ConsistencyModifyParamFlowRuleCommandHandler;
+import com.chord.framework.boot.autoconfigure.sentinel.common.ConsistencyModifyParamFlowRulesCommandHandler;
 import com.chord.framework.boot.autoconfigure.sentinel.gateway.GatewayWritableDataSourceRegistry;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -95,7 +95,7 @@ public class SentinelWritableDataSourceHandler implements SmartInitializingSingl
             case PARAM_FLOW:
                 if(dataSourceProperties instanceof NacosDataSourceProperties) {
                     WritableDataSource<List<ParamFlowRule>> wds = createWritableDataSource((NacosDataSourceProperties) dataSourceProperties);
-                    ConsistencyModifyParamFlowRuleCommandHandler.setWritableDataSource(wds);
+                    ConsistencyModifyParamFlowRulesCommandHandler.setWritableDataSource(wds);
                 } else {
                     logger.warn("no writable data source for the data source");
                 }

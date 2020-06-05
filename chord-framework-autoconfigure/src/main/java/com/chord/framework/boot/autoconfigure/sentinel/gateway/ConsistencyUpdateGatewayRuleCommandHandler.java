@@ -8,7 +8,7 @@ import com.alibaba.csp.sentinel.command.CommandResponse;
 import com.alibaba.csp.sentinel.log.RecordLog;
 import com.alibaba.csp.sentinel.util.StringUtil;
 import com.alibaba.fastjson.JSONArray;
-import com.chord.framework.boot.autoconfigure.sentinel.common.ConsistencyModifyRuleCommandHandler;
+import com.chord.framework.boot.autoconfigure.sentinel.common.ConsistencyModifyRulesCommandHandler;
 import com.chord.framework.boot.autoconfigure.sentinel.core.WriteableDataSourceUtils;
 
 import java.net.URLDecoder;
@@ -19,13 +19,13 @@ import static com.chord.framework.boot.autoconfigure.sentinel.gateway.GatewayWri
 
 /**
  *
- * 类似{@link ConsistencyModifyRuleCommandHandler}
+ * 类似{@link ConsistencyModifyRulesCommandHandler}
  *
  * Created on 2020/5/20
  *
  * @author: wulinfeng
  */
-public class ConnsistencyUpdateGatewayRuleCommandHandler extends UpdateGatewayRuleCommandHandler {
+public class ConsistencyUpdateGatewayRuleCommandHandler extends UpdateGatewayRuleCommandHandler {
 
     @Override
     public CommandResponse<String> handle(CommandRequest request) {

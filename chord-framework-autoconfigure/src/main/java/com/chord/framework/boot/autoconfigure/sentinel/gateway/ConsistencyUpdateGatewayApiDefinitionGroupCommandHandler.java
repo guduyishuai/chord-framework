@@ -12,7 +12,7 @@ import com.alibaba.csp.sentinel.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.chord.framework.boot.autoconfigure.sentinel.common.ConsistencyModifyRuleCommandHandler;
+import com.chord.framework.boot.autoconfigure.sentinel.common.ConsistencyModifyRulesCommandHandler;
 import com.chord.framework.boot.autoconfigure.sentinel.core.WriteableDataSourceUtils;
 
 import java.net.URLDecoder;
@@ -23,7 +23,7 @@ import static com.chord.framework.boot.autoconfigure.sentinel.gateway.GatewayWri
 
 /**
  *
- * 类似{@link ConsistencyModifyRuleCommandHandler}
+ * 类似{@link ConsistencyModifyRulesCommandHandler}
  *
  * Created on 2020/5/20
  *

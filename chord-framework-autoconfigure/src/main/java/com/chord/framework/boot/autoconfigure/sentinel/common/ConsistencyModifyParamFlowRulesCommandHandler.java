@@ -16,13 +16,13 @@ import java.util.List;
 
 /**
  *
- * 类似{@link ConsistencyModifyRuleCommandHandler}
+ * 类似{@link ConsistencyModifyRulesCommandHandler}
  *
  * Created on 2020/5/18
  *
  * @author: wulinfeng
  */
-public class ConsistencyModifyParamFlowRuleCommandHandler extends ModifyParamFlowRulesCommandHandler {
+public class ConsistencyModifyParamFlowRulesCommandHandler extends ModifyParamFlowRulesCommandHandler {
 
     private static WritableDataSource<List<ParamFlowRule>> paramFlowWds = null;
 
@@ -57,7 +57,7 @@ public class ConsistencyModifyParamFlowRuleCommandHandler extends ModifyParamFlo
     }
 
     public synchronized static void setWritableDataSource(WritableDataSource<List<ParamFlowRule>> hotParamWds) {
-        ConsistencyModifyParamFlowRuleCommandHandler.paramFlowWds = hotParamWds;
+        ConsistencyModifyParamFlowRulesCommandHandler.paramFlowWds = hotParamWds;
     }
 
     private static final String SUCCESS_MSG = "success";

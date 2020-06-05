@@ -26,15 +26,15 @@ import static com.alibaba.csp.sentinel.transport.util.WritableDataSourceRegistry
  * 由于ModifyRulesCommandHandler先刷新内存，再写数据源，会造成数据不一致，这里把顺序调整了
  * 由于不需要通过ServiceLoader加载，因为setRules名称会被ModifyRulesCommandHandler覆盖，所以不需要通过CommandMapping注解提供name
  *
- * 热点规则配置没有在该类中处理，而是在{@link ConsistencyModifyParamFlowRuleCommandHandler}中处理
+ * 热点规则配置没有在该类中处理，而是在{@link ConsistencyModifyParamFlowRulesCommandHandler}中处理
  *
- * @see ConsistencyModifyParamFlowRuleCommandHandler
+ * @see ConsistencyModifyParamFlowRulesCommandHandler
  *
  * Created on 2020/5/15
  *
  * @author: wulinfeng
  */
-public class ConsistencyModifyRuleCommandHandler extends ModifyRulesCommandHandler {
+public class ConsistencyModifyRulesCommandHandler extends ModifyRulesCommandHandler {
 
     @Override
     public CommandResponse<String> handle(CommandRequest request) {

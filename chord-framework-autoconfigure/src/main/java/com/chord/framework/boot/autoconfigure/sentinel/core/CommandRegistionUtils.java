@@ -4,6 +4,7 @@ import com.alibaba.csp.sentinel.command.CommandHandler;
 import com.alibaba.csp.sentinel.log.CommandCenterLog;
 import com.alibaba.csp.sentinel.transport.command.SimpleHttpCommandCenter;
 import com.alibaba.csp.sentinel.util.StringUtil;
+import com.chord.framework.boot.autoconfigure.sentinel.common.Constants;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
@@ -21,7 +22,7 @@ public class CommandRegistionUtils {
             return;
         }
 
-        Field field = ReflectionUtils.findField(SimpleHttpCommandCenter.class, "handlerMap");
+        Field field = ReflectionUtils.findField(SimpleHttpCommandCenter.class, Constants.PROPERTY_HANDLER_MAP);
         field.setAccessible(true);
         Map<String, CommandHandler> handlerMap = (Map<String, CommandHandler>) field.get(null);
 
