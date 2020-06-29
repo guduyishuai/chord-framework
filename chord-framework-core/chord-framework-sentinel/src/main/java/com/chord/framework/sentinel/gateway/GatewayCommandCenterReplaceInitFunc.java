@@ -1,9 +1,9 @@
-package com.chord.framework.boot.autoconfigure.sentinel.gateway;
+package com.chord.framework.sentinel.gateway;
 
 import com.alibaba.csp.sentinel.command.CommandHandler;
 import com.alibaba.csp.sentinel.init.InitFunc;
 import com.alibaba.csp.sentinel.transport.command.SimpleHttpCommandCenter;
-import com.chord.framework.boot.autoconfigure.sentinel.common.Constants;
+import com.chord.framework.sentinel.common.Constants;
 import org.springframework.util.ReflectionUtils;
 
 import java.util.Map;

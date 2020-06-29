@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel.gateway;
+package com.chord.framework.sentinel.gateway;
 
 import com.alibaba.csp.sentinel.adapter.gateway.common.SentinelGatewayConstants;
 

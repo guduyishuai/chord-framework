@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel.common;
+package com.chord.framework.sentinel.common;
 
 import com.alibaba.csp.sentinel.command.CommandRequest;
 import com.alibaba.csp.sentinel.command.CommandResponse;
@@ -14,7 +14,7 @@ import com.alibaba.csp.sentinel.slots.system.SystemRule;
 import com.alibaba.csp.sentinel.slots.system.SystemRuleManager;
 import com.alibaba.csp.sentinel.util.StringUtil;
 import com.alibaba.fastjson.JSONArray;
-import com.chord.framework.boot.autoconfigure.sentinel.core.WriteableDataSourceUtils;
+import com.chord.framework.sentinel.core.WriteableDataSourceUtils;
 
 import java.net.URLDecoder;
 import java.util.List;

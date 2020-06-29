@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel.core;
+package com.chord.framework.boot.autoconfigure.sentinel;
 
 import com.alibaba.csp.sentinel.adapter.gateway.common.SentinelGatewayConstants;
 import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiDefinition;
@@ -8,7 +8,12 @@ import com.alibaba.csp.sentinel.adapter.gateway.common.api.GatewayApiDefinitionM
 import com.alibaba.csp.sentinel.adapter.gateway.sc.SentinelGatewayFilter;
 import com.alibaba.csp.sentinel.config.SentinelConfig;
 import com.chord.framework.boot.autoconfigure.common.ContextUtils;
-import com.chord.framework.boot.autoconfigure.sentinel.gateway.*;
+import com.chord.framework.boot.autoconfigure.sentinel.gateway.ApiDefinitionProperties;
+import com.chord.framework.boot.autoconfigure.sentinel.gateway.ApiPredicateItemProperties;
+import com.chord.framework.boot.autoconfigure.sentinel.gateway.ApiProperties;
+import com.chord.framework.sentinel.core.WriteableDataSourceUtils;
+import com.chord.framework.sentinel.gateway.GatewayWritableDataSourceRegistry;
+import com.chord.framework.sentinel.gateway.UrlMatchStategy;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

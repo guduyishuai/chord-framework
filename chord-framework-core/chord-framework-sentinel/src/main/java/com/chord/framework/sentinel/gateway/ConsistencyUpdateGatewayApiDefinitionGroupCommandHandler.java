@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel.gateway;
+package com.chord.framework.sentinel.gateway;
 
 import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiDefinition;
 import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiPathPredicateItem;
@@ -12,14 +12,14 @@ import com.alibaba.csp.sentinel.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.chord.framework.boot.autoconfigure.sentinel.common.ConsistencyModifyRulesCommandHandler;
-import com.chord.framework.boot.autoconfigure.sentinel.core.WriteableDataSourceUtils;
+import com.chord.framework.sentinel.common.ConsistencyModifyRulesCommandHandler;
+import com.chord.framework.sentinel.core.WriteableDataSourceUtils;
 
 import java.net.URLDecoder;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.chord.framework.boot.autoconfigure.sentinel.gateway.GatewayWritableDataSourceRegistry.getGatewayApiDefinitionGroupDataSource;
+import static com.chord.framework.sentinel.gateway.GatewayWritableDataSourceRegistry.getGatewayApiDefinitionGroupDataSource;
 
 /**
  *

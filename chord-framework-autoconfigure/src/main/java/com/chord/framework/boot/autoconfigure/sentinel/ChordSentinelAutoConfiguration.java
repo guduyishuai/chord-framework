@@ -2,7 +2,7 @@ package com.chord.framework.boot.autoconfigure.sentinel;
 
 import com.alibaba.cloud.sentinel.SentinelProperties;
 import com.alibaba.csp.sentinel.context.Context;
-import com.chord.framework.boot.autoconfigure.sentinel.core.SentinelWritableDataSourceHandler;
+import com.chord.framework.sentinel.core.SentinelWritableDataSourceHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;

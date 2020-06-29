@@ -10,13 +10,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>chord-framework-starters</artifactId>
+    <artifactId>chord-framework-core</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>chord-framework-sentinel-starter</module>
-        <module>chord-framework-sentinel-gateway-adapter-starter</module>
-        <module>chord-framework-mybatis-plus-starter</module>
-        <module>chord-framework-mutex-lock-starter</module>
+        <module>chord-framework-sentinel</module>
+        <!--<module>chord-framework-mybatis-plus</module>-->
+        <module>chord-framework-mutex-lock</module>
     </modules>
+
 
 </project>

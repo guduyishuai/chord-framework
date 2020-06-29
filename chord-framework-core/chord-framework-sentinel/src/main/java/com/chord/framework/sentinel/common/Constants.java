@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel.common;
+package com.chord.framework.sentinel.common;
 
 /**
  * Created on 2020/6/5

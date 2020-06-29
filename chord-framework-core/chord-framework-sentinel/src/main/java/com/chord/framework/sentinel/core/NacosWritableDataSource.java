@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel.core;
+package com.chord.framework.sentinel.core;
 
 import com.alibaba.csp.sentinel.datasource.Converter;
 import com.alibaba.csp.sentinel.datasource.WritableDataSource;

@@ -1,5 +1,7 @@
 package com.chord.framework.boot.autoconfigure.sentinel.gateway;
 
+import com.chord.framework.sentinel.gateway.UrlMatchStategy;
+
 /**
  * Created on 2020/5/20
  *

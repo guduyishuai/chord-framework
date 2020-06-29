@@ -1,7 +1,7 @@
-package com.chord.framework.boot.autoconfigure.sentinel.common;
+package com.chord.framework.sentinel.common;
 
 import com.alibaba.csp.sentinel.command.CommandHandler;
-import com.chord.framework.boot.autoconfigure.sentinel.core.CommandRegistionUtils;
+import com.chord.framework.sentinel.core.CommandRegistionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

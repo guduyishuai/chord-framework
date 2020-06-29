@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel.core;
+package com.chord.framework.sentinel.core;
 
 import com.alibaba.cloud.sentinel.SentinelProperties;
 import com.alibaba.cloud.sentinel.datasource.config.AbstractDataSourceProperties;
@@ -12,8 +12,8 @@ import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.param.ParamFlowRule;
 import com.alibaba.csp.sentinel.slots.system.SystemRule;
 import com.alibaba.csp.sentinel.transport.util.WritableDataSourceRegistry;
-import com.chord.framework.boot.autoconfigure.sentinel.common.ConsistencyModifyParamFlowRulesCommandHandler;
-import com.chord.framework.boot.autoconfigure.sentinel.gateway.GatewayWritableDataSourceRegistry;
+import com.chord.framework.sentinel.common.ConsistencyModifyParamFlowRulesCommandHandler;
+import com.chord.framework.sentinel.gateway.GatewayWritableDataSourceRegistry;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

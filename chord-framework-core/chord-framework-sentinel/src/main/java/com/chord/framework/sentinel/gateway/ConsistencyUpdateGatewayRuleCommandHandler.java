@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel.gateway;
+package com.chord.framework.sentinel.gateway;
 
 import com.alibaba.csp.sentinel.adapter.gateway.common.command.UpdateGatewayRuleCommandHandler;
 import com.alibaba.csp.sentinel.adapter.gateway.common.rule.GatewayFlowRule;
@@ -8,14 +8,14 @@ import com.alibaba.csp.sentinel.command.CommandResponse;
 import com.alibaba.csp.sentinel.log.RecordLog;
 import com.alibaba.csp.sentinel.util.StringUtil;
 import com.alibaba.fastjson.JSONArray;
-import com.chord.framework.boot.autoconfigure.sentinel.common.ConsistencyModifyRulesCommandHandler;
-import com.chord.framework.boot.autoconfigure.sentinel.core.WriteableDataSourceUtils;
+import com.chord.framework.sentinel.common.ConsistencyModifyRulesCommandHandler;
+import com.chord.framework.sentinel.core.WriteableDataSourceUtils;
 
 import java.net.URLDecoder;
 import java.util.HashSet;
 import java.util.List;
 
-import static com.chord.framework.boot.autoconfigure.sentinel.gateway.GatewayWritableDataSourceRegistry.getGatewayFlowDataSource;
+import static com.chord.framework.sentinel.gateway.GatewayWritableDataSourceRegistry.getGatewayFlowDataSource;
 
 /**
  *
