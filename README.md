@@ -9,6 +9,9 @@
 - 与nacos联动，双方均可修改配置，并进行联动
 - 解决事务问题，nacos和sentinel有一方同步失败，则全部失败，不会造成数据不一致的问题
 - 整合spring-cloud-gateway，sentinel关于网关的配置也同样可以和nacos联动
+## 分布式锁
+- 支持zookeeper，redission，jedis，lettuce多种方式实现的分布式锁
+- 支持独立配置，可以为分布式锁单独配置zookeeper和redis
     
 # 版本说明
 目前基于的第三方依赖为：</br> 
