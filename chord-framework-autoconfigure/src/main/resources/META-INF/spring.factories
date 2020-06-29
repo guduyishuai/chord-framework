@@ -1,6 +1,11 @@
 org.springframework.boot.SpringApplicationRunListener=\
-  com.chord.framework.boot.autoconfigure.sentinel.core.SentinelApplicationRunListener
+  com.chord.framework.boot.autoconfigure.sentinel.SentinelApplicationRunListener
 
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.chord.framework.boot.autoconfigure.sentinel.ChordSentinelAutoConfiguration,\
-  com.chord.framework.boot.autoconfigure.sentinel.ChordSentinelGatewayAutoConfiguration
+  com.chord.framework.boot.autoconfigure.sentinel.ChordSentinelGatewayAutoConfiguration,\
+  com.chord.framework.boot.autoconfigure.mutex.lock.MutexLockAutoConfiguration, \
+  com.chord.framework.boot.autoconfigure.mutex.lock.RedisLockAutoConfiguration, \
+  com.chord.framework.boot.autoconfigure.mutex.lock.RedissionLockAutoConfiguration, \
+  com.chord.framework.boot.autoconfigure.mutex.lock.ZookeeperLockAutoConfiguration
+  
