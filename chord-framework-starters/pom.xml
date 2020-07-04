@@ -17,6 +17,7 @@
         <module>chord-framework-sentinel-gateway-adapter-starter</module>
         <module>chord-framework-mybatis-plus-starter</module>
         <module>chord-framework-mutex-lock-starter</module>
+        <module>chord-framework-security-starter</module>
     </modules>
 
 </project>

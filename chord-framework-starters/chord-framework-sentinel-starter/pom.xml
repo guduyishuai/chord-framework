@@ -20,6 +20,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.chord.framework</groupId>
+            <artifactId>chord-framework-sentinel</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>

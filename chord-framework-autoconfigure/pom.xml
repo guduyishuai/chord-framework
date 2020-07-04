@@ -51,6 +51,14 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- security -->
+        <dependency>
+            <groupId>com.chord.framework</groupId>
+            <artifactId>chord-framework-security</artifactId>
+            <version>${project.parent.version}</version>
+            <optional>true</optional>
+        </dependency>
+
         <!-- jedis -->
         <dependency>
             <groupId>redis.clients</groupId>

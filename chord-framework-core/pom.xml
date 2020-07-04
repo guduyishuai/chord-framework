@@ -16,6 +16,7 @@
         <module>chord-framework-sentinel</module>
         <!--<module>chord-framework-mybatis-plus</module>-->
         <module>chord-framework-mutex-lock</module>
+        <module>chord-framework-security</module>
     </modules>
 
 
