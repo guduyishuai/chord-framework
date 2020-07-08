@@ -7,7 +7,7 @@
     <groupId>com.chord.framework</groupId>
     <artifactId>chord-framework</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.1</version>
+    <version>0.3.1</version>
     <modules>
         <module>chord-framework-autoconfigure</module>
         <module>chord-framework-starters</module>
