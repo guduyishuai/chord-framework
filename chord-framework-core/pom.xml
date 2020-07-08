@@ -17,6 +17,7 @@
         <!--<module>chord-framework-mybatis-plus</module>-->
         <module>chord-framework-mutex-lock</module>
         <module>chord-framework-security</module>
+        <module>chord-framework-security-captcha</module>
     </modules>
 
 

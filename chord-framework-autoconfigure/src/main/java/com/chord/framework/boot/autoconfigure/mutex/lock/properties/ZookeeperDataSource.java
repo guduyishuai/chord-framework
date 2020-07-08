@@ -2,6 +2,7 @@ package com.chord.framework.boot.autoconfigure.mutex.lock.properties;
 
 import com.chord.framework.mutex.lock.zookeeper.ZookeeperLockFactory;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -15,10 +16,10 @@ public class ZookeeperDataSource {
     @NotEmpty
     private String connectString;
 
-    @NotNull
+    @Digits(integer = 12, fraction = 0)
     private Integer sessionTimeoutMs = ZookeeperLockFactory.DEFAULT_SESSION_TIMEOUT_MS;
 
-    @NotNull
+    @Digits(integer = 12, fraction = 0)
     private Integer connectionTimeoutMs = ZookeeperLockFactory.DEFAULT_CONNECTION_TIMEOUT_MS;
 
     @NotEmpty

@@ -1,7 +1,9 @@
 package com.chord.framework.security;
 
+import com.chord.framework.security.captcha.CaptchaProperties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
  * Created on 2020/7/1
@@ -20,8 +22,10 @@ public class SecurityProperties {
 
     private String checkTokenAccess = "permitAll()";
 
+    @NestedConfigurationProperty
     private ClientProperties client = new ClientProperties();
 
+    @NestedConfigurationProperty
     private EndpointsProperties endpoints = new EndpointsProperties();
 
     private String jwtSigningKey = "chord";
@@ -29,5 +33,8 @@ public class SecurityProperties {
     private String loginPage = "/oauth/token";
 
     private String loginAccess = "/oauth/token";
+
+    @NestedConfigurationProperty
+    private CaptchaProperties captcha;
 
 }

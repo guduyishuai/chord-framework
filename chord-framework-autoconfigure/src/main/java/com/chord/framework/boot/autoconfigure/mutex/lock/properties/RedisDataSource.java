@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 
 /**
@@ -17,7 +17,7 @@ public class RedisDataSource {
     @NestedConfigurationProperty
     private RedisProperties connection;
 
-    @NotNull
+    @NotEmpty
     private String lockKey = "chord_lock";
 
     @Positive

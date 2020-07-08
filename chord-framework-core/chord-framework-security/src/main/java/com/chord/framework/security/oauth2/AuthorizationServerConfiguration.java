@@ -2,6 +2,8 @@ package com.chord.framework.security.oauth2;
 
 import com.chord.framework.security.ClientProperties;
 import com.chord.framework.security.SecurityProperties;
+import com.chord.framework.security.captcha.CaptchaCodeResolver;
+import com.chord.framework.security.captcha.CaptchaTokenGranterCreator;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.CompositeTokenGranter;
+import org.springframework.security.oauth2.provider.TokenGranter;
 import org.springframework.security.oauth2.provider.approval.ApprovalStore;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
@@ -46,10 +50,18 @@ import java.util.Optional;
 @EnableAuthorizationServer
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter implements ApplicationContextAware {
 
+    private static String CAPTCHA_GRANT_TYPE = "password";
+
     protected ApplicationContext applicationContext;
 
     @Autowired
     private SecurityProperties securityProperties;
+
+    @Autowired(required = false)
+    private CaptchaCodeResolver captchaCodeResolver;
+
+    @Autowired(required = false)
+    private CaptchaTokenGranterCreator captchaTokenGranterCreator;
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) {
@@ -198,6 +210,27 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
             handlerInterceptors.forEach((key, value) -> {
                 endpoints.addInterceptor(value);
             });
+        }
+
+        // 额外的鉴权逻辑
+        List<TokenGranter> tokenGranterList = new ArrayList<>();
+
+        if(captchaCodeResolver != null && captchaTokenGranterCreator != null) {
+            tokenGranterList.add(
+                    captchaTokenGranterCreator.create(
+                            securityProperties.getCaptcha().getKeyPrefix(),
+                            captchaCodeResolver,
+                            endpoints.getTokenServices(),
+                            endpoints.getClientDetailsService(),
+                            endpoints.getOAuth2RequestFactory(),
+                            CAPTCHA_GRANT_TYPE));
+        }
+
+        if(!tokenGranterList.isEmpty()) {
+            tokenGranterList.add(endpoints.getTokenGranter());
+            CompositeTokenGranter compositeTokenGranter =
+                    new CompositeTokenGranter(tokenGranterList);
+            endpoints.tokenGranter(compositeTokenGranter);
         }
 
     }

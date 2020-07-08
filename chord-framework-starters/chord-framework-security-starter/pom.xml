@@ -26,6 +26,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.chord.framework</groupId>
+            <artifactId>chord-framework-security-captcha</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
@@ -44,11 +50,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-actuator-autoconfigure</artifactId>
         </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.data</groupId>-->
-            <!--<artifactId>spring-data-redis</artifactId>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>javax.servlet</groupId>

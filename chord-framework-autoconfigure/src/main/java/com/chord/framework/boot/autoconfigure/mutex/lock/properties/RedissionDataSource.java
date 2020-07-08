@@ -1,6 +1,6 @@
 package com.chord.framework.boot.autoconfigure.mutex.lock.properties;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * Created on 2020/6/28
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
  */
 public class RedissionDataSource {
 
-    @NotNull
+    @NotEmpty
     private String config;
 
     public String getConfig() {

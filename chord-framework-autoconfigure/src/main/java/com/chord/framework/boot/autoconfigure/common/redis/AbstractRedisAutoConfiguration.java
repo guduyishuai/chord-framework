@@ -1,6 +1,5 @@
-package com.chord.framework.boot.autoconfigure.mutex.lock;
+package com.chord.framework.boot.autoconfigure.common.redis;
 
-import com.chord.framework.boot.autoconfigure.mutex.lock.properties.MutexLockProperties;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.data.redis.connection.*;
 import org.springframework.util.Assert;
@@ -12,19 +11,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created on 2020/6/29
+ * Created on 2020/7/6
  *
  * @author: wulinfeng
  */
-public class AbstractRedisLockAutoConfiguration {
+public abstract class AbstractRedisAutoConfiguration<T> {
 
     protected final RedisProperties properties;
 
-    public AbstractRedisLockAutoConfiguration(MutexLockProperties properties) {
-        if(properties.getRedis() == null) {
+    public AbstractRedisAutoConfiguration(T t) {
+        if(getRedisProperties(t) == null) {
             throw new IllegalArgumentException("not found the config for redis");
         }
-        this.properties = properties.getRedis().getConnection();
+        this.properties = getRedisProperties(t);
     }
 
     protected final RedisStandaloneConfiguration getStandaloneConfig() {
@@ -143,5 +142,7 @@ public class AbstractRedisLockAutoConfiguration {
         }
 
     }
+
+    protected abstract RedisProperties getRedisProperties(T t);
 
 }

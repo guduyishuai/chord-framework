@@ -1,0 +1,9 @@
+<script>
+insert into ${tableName}
+<trim prefix="(" suffix=")" suffixOverrides=",">
+    ${column}
+</trim>
+<trim prefix="values (" suffix=")" suffixOverrides=",">
+    ${property}
+</trim>
+</script>
