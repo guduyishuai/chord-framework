@@ -20,7 +20,7 @@
         <spring.cloud.alibaba.version>2.1.0.RELEASE</spring.cloud.alibaba.version>
         <spring.boot.starter.velocity.version>1.4.7.RELEASE</spring.boot.starter.velocity.version>
         <redisson.version>3.13.1</redisson.version>
-        <zookeeper.version>3.4.13</zookeeper.version>
+        <zookeeper.version>3.4.14</zookeeper.version>
         <curator.framework.version>4.2.0</curator.framework.version>
         <curator.recipes.version>4.2.0</curator.recipes.version>
         <lombok.version>1.16.22</lombok.version>
