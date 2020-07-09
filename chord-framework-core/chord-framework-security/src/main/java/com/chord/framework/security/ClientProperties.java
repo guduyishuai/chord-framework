@@ -14,13 +14,11 @@ public class ClientProperties {
 
     private boolean inMemory = true;
 
-    private boolean jdbc = false;
-
-    private List<ClientInfo> clients;
+    private List<ClientInfo> infos;
 
     public ClientProperties() {
-        this.clients = new ArrayList<>();
-        clients .add(new ClientInfo());
+        this.infos = new ArrayList<>();
+        infos .add(new ClientInfo());
     }
 
     @Data

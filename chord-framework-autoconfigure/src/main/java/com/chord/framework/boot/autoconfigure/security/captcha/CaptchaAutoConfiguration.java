@@ -27,7 +27,6 @@ public class CaptchaAutoConfiguration {
     private RedisTemplate<String, String> captchaRedisTemplate;
 
     @Bean
-    @ConditionalOnProperty(prefix = SecurityProperties.PREFIX, name = "captcha.enable", havingValue = "true")
     @ConditionalOnMissingBean
     public CaptchaCodeResolver captchaCodeResolver() {
         return new BaseCaptchaCodeResolver();

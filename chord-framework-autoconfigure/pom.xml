@@ -36,12 +36,12 @@
         </dependency>
 
         <!-- mybatis-plus -->
-        <dependency>
-            <groupId>com.chord.framework</groupId>
-            <artifactId>chord-framework-mybatis-plus</artifactId>
-            <version>${project.parent.version}</version>
-            <optional>true</optional>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.chord.framework</groupId>-->
+            <!--<artifactId>chord-framework-mybatis-plus</artifactId>-->
+            <!--<version>${project.parent.version}</version>-->
+            <!--<optional>true</optional>-->
+        <!--</dependency>-->
 
         <!-- mutex-lock -->
         <dependency>

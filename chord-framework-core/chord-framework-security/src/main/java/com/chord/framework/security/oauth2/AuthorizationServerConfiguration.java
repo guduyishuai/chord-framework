@@ -123,8 +123,8 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         if(securityProperties.getClient().isInMemory()) {
             builder = clients.inMemory();
 
-            if(securityProperties.getClient().getClients() != null) {
-                for (ClientProperties.ClientInfo clientInfo : securityProperties.getClient().getClients()) {
+            if(securityProperties.getClient().getInfos() != null) {
+                for (ClientProperties.ClientInfo clientInfo : securityProperties.getClient().getInfos()) {
                     builder.withClient(clientInfo.getClientId())
                             .secret(Optional.ofNullable(applicationContext.getBean(PasswordEncoder.class))
                                     .orElse(new BCryptPasswordEncoder()).encode(clientInfo.getClientSecret()))
