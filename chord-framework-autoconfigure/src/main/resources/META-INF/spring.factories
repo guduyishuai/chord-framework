@@ -7,5 +7,6 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.chord.framework.boot.autoconfigure.mutex.lock.MutexLockAutoConfiguration, \
   com.chord.framework.boot.autoconfigure.mutex.lock.RedisLockAutoConfiguration, \
   com.chord.framework.boot.autoconfigure.mutex.lock.RedissionLockAutoConfiguration, \
-  com.chord.framework.boot.autoconfigure.mutex.lock.ZookeeperLockAutoConfiguration
+  com.chord.framework.boot.autoconfigure.mutex.lock.ZookeeperLockAutoConfiguration, \
+  com.chord.framework.boot.autoconfigure.common.redis.DefaultRedisAutoConfiguration
   

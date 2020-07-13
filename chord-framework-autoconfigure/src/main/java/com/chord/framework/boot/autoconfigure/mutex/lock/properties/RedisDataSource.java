@@ -3,10 +3,6 @@ package com.chord.framework.boot.autoconfigure.mutex.lock.properties;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Positive;
-
 /**
  * Created on 2020/6/28
  *
@@ -17,11 +13,8 @@ public class RedisDataSource {
     @NestedConfigurationProperty
     private RedisProperties connection;
 
-    @NotEmpty
     private String lockKey = "chord_lock";
 
-    @Positive
-    @Digits(integer = 12, fraction = 0)
     private long lockExpireTime = 6;
 
     public RedisProperties getConnection() {

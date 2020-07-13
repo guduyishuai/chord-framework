@@ -1,6 +1,5 @@
 package com.chord.framework.boot.autoconfigure.mutex.lock;
 
-import com.chord.framework.boot.autoconfigure.common.ValidationUtils;
 import com.chord.framework.boot.autoconfigure.mutex.lock.conditional.ConditionalOnZookeeperLock;
 import com.chord.framework.boot.autoconfigure.mutex.lock.properties.MutexLockProperties;
 import com.chord.framework.boot.autoconfigure.mutex.lock.properties.ZookeeperDataSource;
@@ -14,6 +13,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import org.springframework.util.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 
@@ -33,7 +33,9 @@ public class ZookeeperLockAutoConfiguration {
         }
 
         ZookeeperDataSource zookeeperDataSource = mutexLockProperties.getZookeeper();
-        new ValidationUtils<ZookeeperDataSource>().validate(zookeeperDataSource);
+        if(StringUtils.isEmpty(zookeeperDataSource.getConnectString())) {
+            throw new IllegalArgumentException("not found the config for zookeeper connection");
+        }
 
         ZookeeperConfiguration zookeeperConfiguration = new ZookeeperConfiguration();
         zookeeperConfiguration.setConnectString(zookeeperDataSource.getConnectString());

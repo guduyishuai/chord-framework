@@ -5,6 +5,7 @@ import com.chord.framework.boot.autoconfigure.common.ValidationUtils;
 import com.chord.framework.boot.autoconfigure.mutex.lock.conditional.ConditionalOnRedisLock;
 import com.chord.framework.boot.autoconfigure.mutex.lock.properties.MutexLockProperties;
 import com.chord.framework.boot.autoconfigure.mutex.lock.properties.RedisDataSource;
+import com.chord.framework.mutex.lock.LockFactory;
 import com.chord.framework.mutex.lock.redis.LockValueGenerator;
 import com.chord.framework.mutex.lock.redis.RedisConfiguration;
 import com.chord.framework.mutex.lock.redis.RedisLockFactory;
@@ -45,7 +46,6 @@ public class RedisLockAutoConfiguration {
         }
 
         RedisDataSource redisDataSource = properties.getRedis();
-        new ValidationUtils<RedisDataSource>().validate(redisDataSource);
 
         RedisConfiguration redisConfiguration = new RedisConfiguration();
         redisConfiguration.setLockKey(redisDataSource.getLockKey());
@@ -62,12 +62,12 @@ public class RedisLockAutoConfiguration {
     }
 
     @Bean
-    public RedisLockFactory redisLockFactory(RedisTemplate redisLockTemplate, RedisConfiguration redisConfiguration) {
-        return new RedisLockFactory(redisLockTemplate, redisConfiguration);
+    public LockFactory redisLockFactory(RedisTemplate lockRedisTemplate, RedisConfiguration redisConfiguration) {
+        return new RedisLockFactory(lockRedisTemplate, redisConfiguration);
     }
 
     @Configuration
-    @ConditionalOnClass({GenericObjectPool.class, JedisConnection.class, Jedis.class })
+    @ConditionalOnClass(Jedis.class)
     static class JedisLockConfiguration extends AbstractJedisLockAutoConfiguration {
 
         public JedisLockConfiguration(MutexLockProperties properties) {
@@ -90,6 +90,7 @@ public class RedisLockAutoConfiguration {
 
     @Configuration
     @ConditionalOnClass(RedisClient.class)
+    @ConditionalOnMissingClass({"redis.clients.jedis.Jedis"})
     static class LettuceLockConfiguration extends AbstractLettuceLockAutoConfiguration {
 
         public LettuceLockConfiguration(MutexLockProperties properties) {

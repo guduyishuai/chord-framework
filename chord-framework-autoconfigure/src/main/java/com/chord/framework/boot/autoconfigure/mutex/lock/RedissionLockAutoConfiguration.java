@@ -1,9 +1,9 @@
 package com.chord.framework.boot.autoconfigure.mutex.lock;
 
-import com.chord.framework.boot.autoconfigure.common.ValidationUtils;
 import com.chord.framework.boot.autoconfigure.mutex.lock.conditional.ConditionalOnRedissionLock;
 import com.chord.framework.boot.autoconfigure.mutex.lock.properties.MutexLockProperties;
 import com.chord.framework.boot.autoconfigure.mutex.lock.properties.RedissionDataSource;
+import com.chord.framework.mutex.lock.LockFactory;
 import com.chord.framework.mutex.lock.redisson.RedissionConfiguration;
 import com.chord.framework.mutex.lock.redisson.RedissionLockFactory;
 import org.redisson.Redisson;
@@ -20,6 +20,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.util.ReflectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,7 +55,7 @@ public class RedissionLockAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public RedissionLockFactory redissionLockFactory() {
+    public LockFactory redissionLockFactory() {
         RedissonClient redissonClient = createRedisson(getConfig());
         return new RedissionLockFactory(redissonClient);
     }
@@ -73,7 +74,9 @@ public class RedissionLockAutoConfiguration {
         }
 
         RedissionDataSource redissionDataSource = mutexLockProperties.getRedission();
-        new ValidationUtils<RedissionDataSource>().validate(redissionDataSource);
+        if(StringUtils.isEmpty(redissionDataSource.getConfig())) {
+            throw new IllegalArgumentException("not found the config for redission");
+        }
 
         Config config;
         Method clusterMethod = ReflectionUtils.findMethod(RedisProperties.class, "getCluster");

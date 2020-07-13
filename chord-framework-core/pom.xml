@@ -5,7 +5,7 @@
     <parent>
         <artifactId>chord-framework-dependencies</artifactId>
         <groupId>com.chord.framework</groupId>
-        <version>0.3.1</version>
+        <version>0.3.2</version>
         <relativePath>../chord-framework-dependencies</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
