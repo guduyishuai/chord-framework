@@ -9,15 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>chord-framework-mutex-lock-starter</artifactId>
+    <artifactId>chord-framework-mybatis-plus-starter</artifactId>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.chord.framework</groupId>
-            <artifactId>chord-framework-mutex-lock</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>com.chord.framework</groupId>
@@ -25,9 +19,16 @@
             <version>${project.parent.version}</version>
         </dependency>
 
+        <!-- mybatis -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+
+        <!-- mybatis-plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
         </dependency>
 
     </dependencies>

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>chord-framework</artifactId>
         <groupId>com.chord.framework</groupId>
-        <version>0.3.2</version>
+        <version>0.4.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,11 +14,13 @@
     <packaging>pom</packaging>
 
     <properties>
-        <spring.boot.version>2.0.8.RELEASE</spring.boot.version>
-        <spring.platform.version>Cairo-SR7</spring.platform.version>
-        <spring.cloud.version>Finchley.SR3</spring.cloud.version>
-        <spring.cloud.alibaba.version>2.1.0.RELEASE</spring.cloud.alibaba.version>
+        <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
+        <!--<spring.platform.version>Cairo-SR8</spring.platform.version>-->
+        <spring.cloud.version>Hoxton.SR6</spring.cloud.version>
+        <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
         <spring.boot.starter.velocity.version>1.4.7.RELEASE</spring.boot.starter.velocity.version>
+        <spring.security.oauth2.version>2.5.0.RELEASE</spring.security.oauth2.version>
+        <spring.security.jwt.version>1.1.1.RELEASE</spring.security.jwt.version>
         <redisson.version>3.13.1</redisson.version>
         <zookeeper.version>3.4.14</zookeeper.version>
         <curator.framework.version>4.2.0</curator.framework.version>
@@ -31,14 +33,6 @@
     <dependencyManagement>
 
         <dependencies>
-
-            <dependency>
-                <groupId>io.spring.platform</groupId>
-                <artifactId>platform-bom</artifactId>
-                <version>${spring.platform.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -68,6 +62,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-velocity</artifactId>
                 <version>${spring.boot.starter.velocity.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${spring.security.oauth2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${spring.security.jwt.version}</version>
             </dependency>
 
             <dependency>
