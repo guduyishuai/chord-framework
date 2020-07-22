@@ -1,5 +1,7 @@
 package com.chord.framework.boot.autoconfigure.kafka.selector;
 
+import com.chord.framework.boot.autoconfigure.kafka.AloKafkaAutoConfiguration;
+import com.chord.framework.boot.autoconfigure.kafka.AmoKafkaAutoConfiguration;
 import com.chord.framework.boot.autoconfigure.kafka.EosKafkaAutoConfiguration;
 import com.chord.framework.boot.autoconfigure.kafka.NormalKafkaAutoConfiguration;
 import com.chord.framework.boot.autoconfigure.kafka.annotation.EnableKafka;
@@ -30,14 +32,22 @@ public class EnableKafkaImportSelector extends SpringFactoryImportSelector<Enabl
 
          EnableKafka.Mode mode = attributes.getEnum("mode");
 
+        List<String> importsList = new ArrayList<>(Arrays.asList(imports));
+
          switch(mode) {
-             case EOS : {
-                 List<String> importsList = new ArrayList<>(Arrays.asList(imports));
+             case EOS: {
                  importsList.add(EosKafkaAutoConfiguration.class.getName());
                  return importsList.toArray(new String[0]);
              }
+             case AMO: {
+                 importsList.add(AmoKafkaAutoConfiguration.class.getName());
+                 return importsList.toArray(new String[0]);
+             }
+             case ALO: {
+                 importsList.add(AloKafkaAutoConfiguration.class.getName());
+                 return importsList.toArray(new String[0]);
+             }
              case NORMAL: {
-                 List<String> importsList = new ArrayList<>(Arrays.asList(imports));
                  importsList.add(NormalKafkaAutoConfiguration.class.getName());
                  return importsList.toArray(new String[0]);
              }
