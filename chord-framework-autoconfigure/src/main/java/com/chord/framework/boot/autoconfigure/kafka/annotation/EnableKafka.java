@@ -24,7 +24,7 @@ public @interface EnableKafka {
 
     enum Mode {
 
-        EOS, NORMAL;
+        EOS, ATO, AMO, NORMAL;
 
     }
 

@@ -1,8 +1,8 @@
 package com.chord.framework.boot.autoconfigure.kafka;
 
-import com.chord.framework.kafka.consumer.NormalKafkaConsumerFactory;
+import com.chord.framework.kafka.consumer.AmoKafkaConsumerFactory;
 import com.chord.framework.kafka.consumer.NormalKafkaListenerContainerFactory;
-import com.chord.framework.kafka.producer.NormalKafkaProducerFactory;
+import com.chord.framework.kafka.producer.AmoKafkaProducerFactory;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
@@ -26,19 +26,19 @@ import org.springframework.kafka.listener.SeekToCurrentErrorHandler;
 import org.springframework.util.backoff.ExponentialBackOff;
 
 /**
- * Created on 2020/7/17
+ * Created on 2020/7/21
  *
  * @author: wulinfeng
  */
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass(KafkaTemplate.class)
-public class NormalKafkaAutoConfiguration {
+public class AmoKafkaAutoConfiguration {
 
-    private static final Logger logger = LoggerFactory.getLogger(NormalKafkaAutoConfiguration.class);
+    private static final Logger logger = LoggerFactory.getLogger(AmoKafkaAutoConfiguration.class);
 
     private final KafkaProperties properties;
 
-    public NormalKafkaAutoConfiguration(KafkaProperties properties) {
+    public AmoKafkaAutoConfiguration(KafkaProperties properties) {
         this.properties = properties;
     }
 
@@ -46,7 +46,7 @@ public class NormalKafkaAutoConfiguration {
     @ConditionalOnMissingBean(ProducerFactory.class)
     public ProducerFactory<?, ?> kafkaProducerFactory(
             ObjectProvider<DefaultKafkaProducerFactoryCustomizer> customizers) {
-        DefaultKafkaProducerFactory<?, ?> factory = new NormalKafkaProducerFactory<>(
+        DefaultKafkaProducerFactory<?, ?> factory = new AmoKafkaProducerFactory<>(
                 this.properties.buildProducerProperties(), new StringSerializer(), new StringSerializer());
         customizers.orderedStream().forEach((customizer) -> customizer.customize(factory));
         return factory;
@@ -54,8 +54,8 @@ public class NormalKafkaAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public NormalKafkaConsumerFactory kafkaConsumerFactory() {
-        return new NormalKafkaConsumerFactory(this.properties.buildConsumerProperties(), new StringDeserializer(), new StringDeserializer());
+    public AmoKafkaConsumerFactory kafkaConsumerFactory() {
+        return new AmoKafkaConsumerFactory(this.properties.buildConsumerProperties(), new StringDeserializer(), new StringDeserializer());
     }
 
     @Bean
