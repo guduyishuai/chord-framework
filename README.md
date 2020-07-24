@@ -22,6 +22,7 @@
 - 提供很简单的配置，实现精确一次性语义
 - 提供很简单的配置，实现kafka的事务和数据库的事务同步
 - 默认使用一些比较优化的kafka参数配置
+- spring-boot没有暴露kafka_consumer的监控信息，chord将kafka_consumer从jmx中获得注册为通用的micrometer，适配任何监控系统，比如prometheus
     
 # 版本说明
 0.4.0之前基于的第三方依赖为：</br> 
