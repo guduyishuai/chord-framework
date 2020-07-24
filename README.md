@@ -1,7 +1,9 @@
 # 简介
-  `chord-framework`开源项目由个人业余时间编写，主要是提供各种框架的扩展，目前功能比较少，后续会逐渐加入模块。</br>
-  本人会添加模块可能是比较随机的。</br>
-  本框架类似spring-boot的结构，用户只需要引入相应的starter即可。
+  `chord-framework`开源项目由个人业余时间编写，主要对常用开源框架进行扩展，定制   
+  框架的主旨是尽量简化常用开源框架的使用成本，尽量做到开箱即用   
+  目前功能比较少，后续会逐渐加入模块   
+  本人添加的模块是比较随机的   
+  本框架类似spring-boot的结构，用户只需要引入相应的starter即可
 
 # 功能特性
 ## sentinel
@@ -16,11 +18,19 @@
 - 提供非常简单的方式，通过一个注解创建简单的认证服务器，资源服务器
 - 验证码功能，可以独立配置redis存储验证码信息
 - 支持自己扩展权限信息，比如从数据库获取
+## kafka
+- 提供很简单的配置，实现精确一次性语义
+- 提供很简单的配置，实现kafka的事务和数据库的事务同步
+- 默认使用一些比较优化的kafka参数配置
     
 # 版本说明
-目前基于的第三方依赖为：</br> 
+0.4.0之前基于的第三方依赖为：</br> 
 - spring-cloud-alibaba 2.1.0.RELEASE
-- spring-cloud 2.0.8.RELEASE
+- spring-cloud 2.0.8.RELEASE 也就是 Finchley
+
+0.4.0之后基于的第三方依赖为：</br>
+- spring-cloud-alibaba 2.2.1.RELEASE
+- spring-cloud 2.2.3.RELEASE 也就是 Hoxton
     
 # POM依赖
 `chord-framework`提供了一个bom，使用的时候可以引用该bom，从而防止依赖上的问题
