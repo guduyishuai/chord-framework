@@ -159,6 +159,14 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- metric -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-core</artifactId>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+
         <!-- validation -->
         <dependency>
             <groupId>javax.validation</groupId>

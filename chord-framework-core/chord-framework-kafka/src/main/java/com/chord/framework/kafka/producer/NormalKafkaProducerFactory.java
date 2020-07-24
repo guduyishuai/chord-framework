@@ -42,18 +42,18 @@ public class NormalKafkaProducerFactory<K, V> extends DefaultKafkaProducerFactor
                 Map<String, Object> configs = (Map<String, Object>) field.get(this);
 
                 // 默认调整到32KB，另外bufferMemory需要结合batchSize和并发调整
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.BATCH_SIZE_CONFIG,
                         32);
 
                 // 默认batch收集时间为30ms
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.LINGER_MS_CONFIG,
                         30
                 );
 
                 // 默认调整为LZ4压缩方案
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.COMPRESSION_TYPE_CONFIG,
                         CompressionType.LZ4.name
                 );
@@ -62,45 +62,45 @@ public class NormalKafkaProducerFactory<K, V> extends DefaultKafkaProducerFactor
                 // 必须要大于replica.lag.time.max.ms设置，该设置是broker的设置，该设置表示follower副本落后leader副本后超过该时间还没有赶上的话，就剔除ISR名单
                 // 这样做可以在重试减少重复的消息数
                 // 使用默认值
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG,
                         30 * 1000
                 );
 
                 // 调用send后，收到成功或者失败的超时时间。这个时间包括了发送消息，等待ack，重试的时间。该配置应该大于request.timeout.ms + linger.ms
                 // 使用默认值
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG,
                         120 * 1000
                 );
 
                 // tcp缓存，使用默认值
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.SEND_BUFFER_CONFIG,
                         128 * 1024
                 );
 
                 // tcp缓存，使用默认值
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.RECEIVE_BUFFER_CONFIG,
                         32 * 1024
                 );
 
                 // buffer的大小，需要结合压测进行调整，使用默认32MB
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.BUFFER_MEMORY_CONFIG,
                         32 * 1024 * 1024L
                 );
 
                 // buffer满了，发送的阻塞时间，超过该时间报错，使用默认值6秒
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.MAX_BLOCK_MS_CONFIG,
                         60 * 1000
                 );
 
                 // 生产者收到响应前能够发送的消息数，如果要保证顺序消费，包括重试的情况，该值需要设置为1
                 // 使用默认值5
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION,
                         5
                 );
@@ -108,7 +108,7 @@ public class NormalKafkaProducerFactory<K, V> extends DefaultKafkaProducerFactor
                 // 重试次数，0.11.1.0以前需要设置MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION为1才能保证顺序
                 // 如果0.11.1.0及以后，使用了EOS语义，重试不会造成消息顺序问题
                 // 使用默认值
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.RETRIES_CONFIG,
                         Integer.MAX_VALUE
                 );
@@ -117,7 +117,7 @@ public class NormalKafkaProducerFactory<K, V> extends DefaultKafkaProducerFactor
                 // MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION小于等于5
                 // RETRIES_CONFIG大于0
                 // ACKS_CONFIG设置为ALL
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG,
                         false
                 );
@@ -126,7 +126,7 @@ public class NormalKafkaProducerFactory<K, V> extends DefaultKafkaProducerFactor
                 // 1表示只需要leader写了日志后则返回成功，不需要等follower同步
                 //  如果leader写了日志后马上宕机，新选举的leader将没有刚发送的消息，造成消息丢失
                 // all表示需要leader写日志，并且ISR中的所有follower同步了日志，才返回成功
-                configs.put(
+                configs.putIfAbsent(
                         ProducerConfig.ACKS_CONFIG,
                         "all"
                 );

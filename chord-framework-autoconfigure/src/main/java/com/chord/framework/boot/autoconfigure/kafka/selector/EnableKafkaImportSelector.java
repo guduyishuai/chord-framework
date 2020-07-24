@@ -1,9 +1,6 @@
 package com.chord.framework.boot.autoconfigure.kafka.selector;
 
-import com.chord.framework.boot.autoconfigure.kafka.AloKafkaAutoConfiguration;
-import com.chord.framework.boot.autoconfigure.kafka.AmoKafkaAutoConfiguration;
-import com.chord.framework.boot.autoconfigure.kafka.EosKafkaAutoConfiguration;
-import com.chord.framework.boot.autoconfigure.kafka.NormalKafkaAutoConfiguration;
+import com.chord.framework.boot.autoconfigure.kafka.*;
 import com.chord.framework.boot.autoconfigure.kafka.annotation.EnableKafka;
 import org.springframework.cloud.commons.util.SpringFactoryImportSelector;
 import org.springframework.core.Ordered;
@@ -33,6 +30,7 @@ public class EnableKafkaImportSelector extends SpringFactoryImportSelector<Enabl
          EnableKafka.Mode mode = attributes.getEnum("mode");
 
         List<String> importsList = new ArrayList<>(Arrays.asList(imports));
+        importsList.add(ChordKafkaMetricsAutoConfiguration.class.getName());
 
          switch(mode) {
              case EOS: {

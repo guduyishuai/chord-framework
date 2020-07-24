@@ -19,6 +19,7 @@
         <module>chord-framework-security</module>
         <module>chord-framework-security-captcha</module>
         <module>chord-framework-kafka</module>
+        <module>chord-framework-metric</module>
     </modules>
 
 
