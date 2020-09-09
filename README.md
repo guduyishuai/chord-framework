@@ -6,11 +6,15 @@
   本框架类似spring-boot的结构，用户只需要引入相应的starter即可
 
 # 功能特性
+## nacos
+- nacos支持按照分组进行注册服务和服务发现(测试通过，0.5.0版本发布)
+- nacos配置支持对配置项添加自己的逻辑(测试通过，0.5.0版本发布)
 ## sentinel
 - 配置信息通过nacos进行持久化
 - 与nacos联动，双方均可修改配置，并进行联动
 - 解决事务问题，nacos和sentinel有一方同步失败，则全部失败，不会造成数据不一致的问题
 - 整合spring-cloud-gateway，sentinel关于网关的配置也同样可以和nacos联动
+- 流量监控信息提供对prometheus的支持(测试通过，0.5.0版本发布)
 ## 分布式锁
 - 支持zookeeper，redission，jedis，lettuce多种方式实现的分布式锁
 - 支持独立配置，可以为分布式锁单独配置zookeeper和redis
@@ -25,7 +29,10 @@
 - spring-kafka没有针对micrometer的开箱即用的kafka_consumer的监控信息   
   chord将kafka_consumer从jmx中获取   
   注册为通用的micrometer，适配任何监控系统，比如prometheus
-    
+## dubbo
+- dubbo的nacos注册和服务发现支持分组(测试通过，0.5.0版本发布)
+- dubbo提供支持request范围的(生产稳定使用，0.5.0版本发布)
+
 # 版本说明
 0.4.0之前基于的第三方依赖为：</br> 
 - spring-cloud-alibaba 2.1.0.RELEASE
