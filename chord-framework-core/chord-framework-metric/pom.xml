@@ -5,13 +5,20 @@
     <parent>
         <artifactId>chord-framework-core</artifactId>
         <groupId>com.chord.framework</groupId>
-        <version>0.4.1</version>
+        <version>0.5.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>chord-framework-metric</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
 
         <dependency>
             <groupId>io.micrometer</groupId>

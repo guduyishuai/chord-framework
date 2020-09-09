@@ -7,6 +7,10 @@ import io.micrometer.core.instrument.binder.MeterBinder;
 import java.util.List;
 
 /**
+ *
+ * kafka的监控，需要实现{@link MeterBinder}
+ * {@link BaseMetricsAdapter}是一个从jms中获取监控数据的适配器
+ *
  * Created on 2020/7/24
  *
  * @author: wulinfeng

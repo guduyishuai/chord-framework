@@ -5,7 +5,7 @@
     <parent>
         <artifactId>chord-framework-dependencies</artifactId>
         <groupId>com.chord.framework</groupId>
-        <version>0.4.1</version>
+        <version>0.5.0</version>
         <relativePath>../chord-framework-dependencies</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -19,6 +19,8 @@
         <module>chord-framework-mutex-lock-starter</module>
         <module>chord-framework-security-starter</module>
         <module>chord-framework-kafka-starter</module>
+        <module>chord-framework-nacos-starter</module>
+        <module>chord-framework-dubbo-starter</module>
     </modules>
 
 </project>

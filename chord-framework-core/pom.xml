@@ -5,7 +5,7 @@
     <parent>
         <artifactId>chord-framework-dependencies</artifactId>
         <groupId>com.chord.framework</groupId>
-        <version>0.4.1</version>
+        <version>0.5.0</version>
         <relativePath>../chord-framework-dependencies</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -20,6 +20,9 @@
         <module>chord-framework-security-captcha</module>
         <module>chord-framework-kafka</module>
         <module>chord-framework-metric</module>
+        <module>chord-framework-commons</module>
+        <module>chord-framework-nacos</module>
+        <module>chord-framework-dubbo</module>
     </modules>
 
 

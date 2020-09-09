@@ -5,7 +5,7 @@
     <parent>
         <artifactId>chord-framework-dependencies</artifactId>
         <groupId>com.chord.framework</groupId>
-        <version>0.4.1</version>
+        <version>0.5.0</version>
         <relativePath>../chord-framework-dependencies</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -32,6 +32,20 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- nacos -->
+        <dependency>
+            <groupId>com.chord.framework</groupId>
+            <artifactId>chord-framework-nacos</artifactId>
+            <version>${project.parent.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
             <optional>true</optional>
         </dependency>
 
@@ -136,6 +150,8 @@
             <groupId>com.chord.framework</groupId>
             <artifactId>chord-framework-kafka</artifactId>
             <version>${project.parent.version}</version>
+            <scope>provided</scope>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -163,6 +179,13 @@
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-core</artifactId>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
             <scope>compile</scope>
             <optional>true</optional>
         </dependency>

@@ -1,4 +1,4 @@
-package com.chord.framework.security.captcha.util;
+package com.chord.framework.commons.util;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;

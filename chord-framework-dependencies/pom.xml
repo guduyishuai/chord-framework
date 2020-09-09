@@ -5,7 +5,7 @@
     <parent>
         <artifactId>chord-framework</artifactId>
         <groupId>com.chord.framework</groupId>
-        <version>0.4.1</version>
+        <version>0.5.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -25,6 +25,7 @@
         <zookeeper.version>3.4.14</zookeeper.version>
         <curator.framework.version>4.2.0</curator.framework.version>
         <curator.recipes.version>4.2.0</curator.recipes.version>
+        <dubbo.version>2.7.3</dubbo.version>
         <lombok.version>1.16.22</lombok.version>
         <mybatis.version>3.5.3</mybatis.version>
         <mybatis.plus.version>3.3.0</mybatis.plus.version>
@@ -110,6 +111,12 @@
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-framework</artifactId>
                 <version>${curator.framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
             </dependency>
 
             <dependency>

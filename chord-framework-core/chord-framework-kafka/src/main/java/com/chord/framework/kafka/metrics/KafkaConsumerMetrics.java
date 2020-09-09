@@ -6,6 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ *
+ * kafka的consumer监控数据
+ * @see KafkaMetrics
+ *
  * Created on 2020/7/24
  *
  * @author: wulinfeng
@@ -74,6 +78,11 @@ public class KafkaConsumerMetrics extends KafkaMetrics {
 
     }
 
+    /**
+     *
+     * kafka自带jmx监控的元数据信息
+     *
+     */
     static class KafkaConsumerMetricsMeta {
 
         public static final String CONSUMER_METRICS = "kafka.consumer";

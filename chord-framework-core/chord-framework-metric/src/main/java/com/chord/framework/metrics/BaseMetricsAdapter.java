@@ -14,11 +14,14 @@ import java.util.concurrent.Callable;
 import java.util.function.BiConsumer;
 
 /**
+ *
+ * 从jmx中获取监控数据
+ *
  * Created on 2020/7/24
  *
  * @author: wulinfeng
  */
-public class BaseMetricsAdapter implements MetricsAdapter {
+public class BaseMetricsAdapter implements JmxMetricsAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(BaseMetricsAdapter.class);
 

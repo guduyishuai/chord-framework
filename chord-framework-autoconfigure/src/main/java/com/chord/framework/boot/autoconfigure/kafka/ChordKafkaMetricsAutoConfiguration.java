@@ -11,6 +11,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.ProducerFactory;
 
 /**
+ *
+ * 用来注册kafaka消费端的监控数据的{@link MeterBinder}，{@link MeterBinder}是micrometer中的类
+ * micrometer类似于日志的slf4j，通过{@link MeterBinder}可以适配任何监控
+ *
  * Created on 2020/7/24
  *
  * @author: wulinfeng

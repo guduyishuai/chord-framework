@@ -1,9 +1,19 @@
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+  com.chord.framework.boot.autoconfigure.nacos.config.EncryptionAutoConfiguration
+
+org.springframework.context.ApplicationContextInitializer=\
+  com.chord.framework.boot.autoconfigure.nacos.config.initializer.NacosConfigInitializer
+
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  com.chord.framework.boot.autoconfigure.nacos.registry.processor.JreapNacosPostProcessor
+
 org.springframework.boot.SpringApplicationRunListener=\
   com.chord.framework.boot.autoconfigure.sentinel.SentinelApplicationRunListener
 
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.chord.framework.boot.autoconfigure.sentinel.ChordSentinelAutoConfiguration,\
   com.chord.framework.boot.autoconfigure.sentinel.ChordSentinelGatewayAutoConfiguration,\
+  com.chord.framework.boot.autoconfigure.sentinel.ChordSentinelMetricAutoConfiguration,\
   com.chord.framework.boot.autoconfigure.mutex.lock.MutexLockAutoConfiguration, \
   com.chord.framework.boot.autoconfigure.mutex.lock.RedisLockAutoConfiguration, \
   com.chord.framework.boot.autoconfigure.mutex.lock.RedissionLockAutoConfiguration, \

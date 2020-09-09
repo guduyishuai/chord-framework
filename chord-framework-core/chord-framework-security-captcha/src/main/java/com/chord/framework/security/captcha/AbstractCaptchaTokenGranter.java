@@ -1,6 +1,6 @@
 package com.chord.framework.security.captcha;
 
-import com.chord.framework.security.captcha.util.IpResolver;
+import com.chord.framework.commons.util.IpResolver;
 import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
