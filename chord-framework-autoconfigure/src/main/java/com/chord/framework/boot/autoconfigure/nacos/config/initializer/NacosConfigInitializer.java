@@ -1,9 +1,11 @@
 package com.chord.framework.boot.autoconfigure.nacos.config.initializer;
 
 import com.alibaba.cloud.nacos.client.NacosPropertySource;
+import com.alibaba.nacos.api.naming.NamingService;
 import com.chord.framework.commons.util.BindHelper;
 import com.chord.framework.commons.util.OrderComparetor;
 import com.chord.framework.nacos.config.handler.ConfigPropertyHandler;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.cloud.bootstrap.config.BootstrapPropertySource;
 import org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration;
 import org.springframework.cloud.bootstrap.encrypt.EnvironmentDecryptApplicationInitializer;

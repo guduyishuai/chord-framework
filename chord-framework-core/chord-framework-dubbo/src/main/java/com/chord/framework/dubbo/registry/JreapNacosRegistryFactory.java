@@ -4,7 +4,7 @@ import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.common.Constants;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingService;
-import framework.dubbo.commons.ExtPropertyKeyConst;
+import com.chord.framework.dubbo.commons.ExtPropertyKeyConst;
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.registry.Registry;
 import org.apache.dubbo.registry.nacos.NacosRegistryFactory;
