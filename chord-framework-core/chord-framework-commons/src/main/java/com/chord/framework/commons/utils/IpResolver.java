@@ -1,4 +1,4 @@
-package com.chord.framework.commons.util;
+package com.chord.framework.commons.utils;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;

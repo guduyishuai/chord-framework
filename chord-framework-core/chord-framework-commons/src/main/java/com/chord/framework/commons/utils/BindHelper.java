@@ -1,4 +1,4 @@
-package com.chord.framework.commons.util;
+package com.chord.framework.commons.utils;
 
 import org.springframework.boot.context.properties.bind.Bindable;
 import org.springframework.boot.context.properties.bind.Binder;

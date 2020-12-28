@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel.gateway;
+package com.chord.framework.sentinel.properties.gateway;
 
 import com.chord.framework.sentinel.gateway.UrlMatchStategy;
 

@@ -24,4 +24,14 @@
         <module>chord-framework-tomcat-starter</module>
     </modules>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.chord.framework</groupId>
+            <artifactId>chord-framework-commons</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+    </dependencies>
+
 </project>
