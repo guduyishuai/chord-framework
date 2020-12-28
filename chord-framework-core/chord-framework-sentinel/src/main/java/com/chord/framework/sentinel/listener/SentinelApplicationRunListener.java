@@ -1,4 +1,4 @@
-package com.chord.framework.boot.autoconfigure.sentinel;
+package com.chord.framework.sentinel.listener;
 
 import com.alibaba.csp.sentinel.adapter.gateway.common.SentinelGatewayConstants;
 import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiDefinition;
@@ -7,20 +7,20 @@ import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiPredicateItem;
 import com.alibaba.csp.sentinel.adapter.gateway.common.api.GatewayApiDefinitionManager;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.SentinelGatewayFilter;
 import com.alibaba.csp.sentinel.config.SentinelConfig;
-import com.chord.framework.boot.autoconfigure.common.ContextUtils;
-import com.chord.framework.boot.autoconfigure.sentinel.gateway.ApiDefinitionProperties;
-import com.chord.framework.boot.autoconfigure.sentinel.gateway.ApiPredicateItemProperties;
-import com.chord.framework.boot.autoconfigure.sentinel.gateway.ApiProperties;
+import com.chord.framework.commons.listener.ApplicationRunListener;
+import com.chord.framework.commons.utils.ContextUtils;
 import com.chord.framework.sentinel.core.WriteableDataSourceUtils;
 import com.chord.framework.sentinel.gateway.GatewayWritableDataSourceRegistry;
 import com.chord.framework.sentinel.gateway.UrlMatchStategy;
+import com.chord.framework.sentinel.properties.gateway.ApiDefinitionProperties;
+import com.chord.framework.sentinel.properties.gateway.ApiPredicateItemProperties;
+import com.chord.framework.sentinel.properties.gateway.ApiProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.util.ClassUtils;
@@ -31,24 +31,20 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 /**
- *
- * starting阶段的设置
- * 设置SentinelConfig
- *
- * started阶段的设置
- * 根据配置设置api分组
- *
- * Created on 2020/5/19
+ * Created on 2020/12/29
  *
  * @author: wulinfeng
  */
-public class SentinelApplicationRunListener implements SpringApplicationRunListener {
+public class SentinelApplicationRunListener implements ApplicationRunListener {
 
     private final static Logger logger = LoggerFactory.getLogger(SentinelApplicationRunListener.class);
 
-    private String[] args;
+    private final SpringApplication application;
+
+    private final String[] args;
 
     public SentinelApplicationRunListener(SpringApplication application, String[] args){
+        this.application = application;
         this.args = args;
     }
 

@@ -1,7 +1,8 @@
-package com.chord.framework.boot.autoconfigure.nacos.registry.initializer;
+package com.chord.framework.nacos.registry.initializer;
 
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 
@@ -15,7 +16,7 @@ import java.util.Map;
  *
  * @author: wulinfeng
  */
-public class JreapNacosApplicationContextInitializer implements ApplicationContextInitializer {
+public class ChordNacosApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>, Ordered {
 
     private static final String PROPERTY_SOURCE_DEFAULT_BOOTSTRAP = "applicationConfig: [classpath:/bootstrap.yml]";
 
@@ -24,6 +25,8 @@ public class JreapNacosApplicationContextInitializer implements ApplicationConte
     private static final String NACOS_DISCOVERY_AUTO_CONFIGURATION = "org.springframework.cloud.alibaba.nacos.NacosDiscoveryAutoConfiguration";
 
     private static final String SPLITER = ",";
+
+    private int order = Ordered.LOWEST_PRECEDENCE;
 
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
@@ -40,6 +43,11 @@ public class JreapNacosApplicationContextInitializer implements ApplicationConte
                 ((Map<String, Object>) propertySource.getSource()).put(PROPERTY_NAME_AUTOCONFIGURE_EXCLUDE, exclude);
             }
         });
+    }
+
+    @Override
+    public int getOrder() {
+        return this.order;
     }
 
 }
