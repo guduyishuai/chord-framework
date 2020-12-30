@@ -33,7 +33,7 @@
 - dubbo的nacos注册和服务发现支持分组和集群名(测试通过，0.5.0版本发布)
 - dubbo提供支持request范围的缓存(生产稳定使用，0.5.0版本发布)
 ## tomcat
-- 可以使用tomcat启动，并且解决@Resouce注解在Servlet和Filter中被识别为jndi资源的问题(生产稳定使用，0.6.0版本发布)
+- 可以使用tomcat启动，并且解决Resouce注解在Servlet和Filter中被识别为jndi资源的问题(生产稳定使用，0.6.0版本发布)
 
 # 版本说明
 0.4.0之前基于的第三方依赖为：</br> 
