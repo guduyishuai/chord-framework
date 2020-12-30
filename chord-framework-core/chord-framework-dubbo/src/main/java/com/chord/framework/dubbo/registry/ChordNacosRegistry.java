@@ -30,9 +30,9 @@ import static org.apache.dubbo.registry.nacos.NacosServiceName.valueOf;
  *
  * @author: wulinfeng
  */
-public class JreapNacosRegistry extends NacosRegistry {
+public class ChordNacosRegistry extends NacosRegistry {
 
-    private static final Logger logger = LoggerFactory.getLogger(JreapNacosRegistry.class);
+    private static final Logger logger = LoggerFactory.getLogger(ChordNacosRegistry.class);
 
     private static final String SERVICE_NAME_SEPARATOR = System.getProperty("nacos.service.name.separator", ":");
 
@@ -41,6 +41,8 @@ public class JreapNacosRegistry extends NacosRegistry {
     private static final int PAGINATION_SIZE = Integer.getInteger("nacos.service.names.pagination.size", 100);
 
     private final String groupName;
+
+    private final String clusterName;
 
     private final NamingService namingService;
 
@@ -65,11 +67,12 @@ public class JreapNacosRegistry extends NacosRegistry {
             CONFIGURATORS_CATEGORY
     );
 
-    public JreapNacosRegistry(URL url, NamingService namingService, String groupName) {
+    public ChordNacosRegistry(URL url, NamingService namingService, String groupName, String clusterName) {
         super(url, namingService);
         this.namingService = namingService;
         this.nacosListeners = new ConcurrentHashMap<>();
         this.groupName = groupName;
+        this.clusterName = clusterName;
     }
 
     @Override
@@ -349,6 +352,9 @@ public class JreapNacosRegistry extends NacosRegistry {
         Instance instance = new Instance();
         instance.setIp(ip);
         instance.setPort(port);
+        if(!StringUtils.isEmpty(this.clusterName)) {
+            instance.setClusterName(this.clusterName);
+        }
         instance.setMetadata(new HashMap<>(newURL.getParameters()));
         return instance;
     }

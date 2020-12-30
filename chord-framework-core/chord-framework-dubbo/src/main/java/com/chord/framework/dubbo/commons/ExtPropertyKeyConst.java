@@ -11,4 +11,6 @@ public class ExtPropertyKeyConst {
 
     public final static String GROUP = "group";
 
+    public final static String CLUSTER_NAME = "clusterName";
+
 }

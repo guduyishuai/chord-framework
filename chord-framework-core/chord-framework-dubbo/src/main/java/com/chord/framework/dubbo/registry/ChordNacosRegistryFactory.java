@@ -22,15 +22,15 @@ import static org.apache.dubbo.common.constants.RemotingConstants.BACKUP_KEY;
  *
  * @author: wulinfeng
  */
-public class JreapNacosRegistryFactory extends NacosRegistryFactory {
+public class ChordNacosRegistryFactory extends NacosRegistryFactory {
 
-    private static final Logger logger = LoggerFactory.getLogger(JreapNacosRegistryFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(ChordNacosRegistryFactory.class);
 
     @Override
     protected Registry createRegistry(URL url) {
         url = url.setProtocol(ExtPropertyKeyConst.PROTOCOL_NACOS);
         Properties nacosProperties = resolveProperties(url);
-        return new JreapNacosRegistry(url, buildNamingService(nacosProperties), buildGroupName(nacosProperties));
+        return new ChordNacosRegistry(url, buildNamingService(nacosProperties), buildGroupName(nacosProperties), buildClusterName(nacosProperties));
     }
 
     private Properties resolveProperties(URL url) {
@@ -59,6 +59,10 @@ public class JreapNacosRegistryFactory extends NacosRegistryFactory {
         setServerAddr(url, properties);
         setProperties(url, properties);
         return properties;
+    }
+
+    private String buildClusterName(Properties nacosProperties) {
+        return nacosProperties.getProperty(ExtPropertyKeyConst.CLUSTER_NAME, Constants.DEFAULT_CLUSTER_NAME);
     }
 
     private void setServerAddr(URL url, Properties properties) {

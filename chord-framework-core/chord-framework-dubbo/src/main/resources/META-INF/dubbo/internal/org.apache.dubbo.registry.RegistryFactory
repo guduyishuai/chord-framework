@@ -1,1 +1,1 @@
-jreap_nacos=framework.dubbo.registry.JreapNacosRegistryFactory
+chord_nacos=framework.dubbo.registry.ChordNacosRegistryFactory

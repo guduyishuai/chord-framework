@@ -11,7 +11,7 @@ import org.apache.dubbo.metadata.store.nacos.NacosMetadataReportFactory;
  *
  * @author: wulinfeng
  */
-public class JreapNacosMetadataReportFactory extends NacosMetadataReportFactory {
+public class ChordNacosMetadataReportFactory extends NacosMetadataReportFactory {
 
     @Override
     protected MetadataReport createMetadataReport(URL url) {
