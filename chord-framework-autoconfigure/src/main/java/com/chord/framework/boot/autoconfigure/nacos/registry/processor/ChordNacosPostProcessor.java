@@ -1,5 +1,6 @@
 package com.chord.framework.boot.autoconfigure.nacos.registry.processor;
 
+import com.alibaba.cloud.nacos.discovery.NacosServiceDiscovery;
 import com.chord.framework.boot.autoconfigure.nacos.registry.annotation.EnableDiscoveryWithNacosGroup;
 import com.chord.framework.nacos.registry.initializer.ChordNacosApplicationContextInitializer;
 import org.springframework.boot.SpringApplication;
@@ -13,10 +14,15 @@ import org.springframework.core.env.ConfigurableEnvironment;
  *
  * @see ChordNacosApplicationContextInitializer
  *
+ * 官方已经支持分组注册
+ *
+ * @see NacosServiceDiscovery
+ *
  * Created on 2020/9/4
  *
  * @author: wulinfeng
  */
+@Deprecated
 public class ChordNacosPostProcessor implements EnvironmentPostProcessor {
 
     @Override

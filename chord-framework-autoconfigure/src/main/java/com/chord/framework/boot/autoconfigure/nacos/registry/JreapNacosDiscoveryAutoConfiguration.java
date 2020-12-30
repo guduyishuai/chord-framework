@@ -19,10 +19,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 /**
+ *
+ * 用于分组注册
+ * 目前官方已经支持分组注册
+ *
+ * @see NacosServiceRegistry
+ *
  * Created on 2020/8/21
  *
  * @author: wulinfeng
  */
+@Deprecated
 @Configuration
 @EnableConfigurationProperties({JreapNacosDiscoveryProperties.class, NacosDiscoveryProperties.class})
 @ConditionalOnNacosDiscoveryEnabled

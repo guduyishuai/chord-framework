@@ -4,8 +4,8 @@ org.springframework.cloud.bootstrap.BootstrapConfiguration=\
 org.springframework.context.ApplicationContextInitializer=\
   com.chord.framework.commons.initializer.ChordApplicationContextInitializer
 
-org.springframework.boot.env.EnvironmentPostProcessor=\
-  com.chord.framework.boot.autoconfigure.nacos.registry.processor.ChordNacosPostProcessor
+#org.springframework.boot.env.EnvironmentPostProcessor=\
+#  com.chord.framework.boot.autoconfigure.nacos.registry.processor.ChordNacosPostProcessor
 
 org.springframework.boot.SpringApplicationRunListener=\
   com.chord.framework.commons.listener.ChordApplicationRunListener

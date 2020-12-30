@@ -14,10 +14,15 @@ import org.springframework.util.StringUtils;
  *
  * 增加了根据组注册的功能
  *
+ * 目前官方已支持分组注册
+ *
+ * @see NacosServiceRegistry
+ *
  * Created on 2020/8/21
  *
  * @author: wulinfeng
  */
+@Deprecated
 public class JreapNacosServiceRegistry extends NacosServiceRegistry {
 
     private static final Logger log = LoggerFactory.getLogger(NacosServiceRegistry.class);
