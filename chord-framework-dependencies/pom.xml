@@ -27,7 +27,7 @@
         <curator.recipes.version>4.2.0</curator.recipes.version>
         <dubbo.version>2.7.3</dubbo.version>
         <lombok.version>1.16.22</lombok.version>
-        <mybatis.version>3.5.3</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
         <mybatis.plus.version>3.3.0</mybatis.plus.version>
     </properties>
 
